@@ -1,4 +1,4 @@
-import Table from "@/components/imports/Table";
+import Table from "@/components/orders/Table";
 import React from "react";
 
 const Orders = () => {

@@ -1,4 +1,5 @@
 const UserModel = require("../models/userModel");
+const createJsonWebToken = require("../utils/createJsonWebToken");
 
 const register = async (req, res) => {
   const { username, email, password, mobile } = req.body;
@@ -55,7 +56,7 @@ const login = async (req, res) => {
       .status(200)
       .json(rest);
   } catch (error) {
-    return res.status(400).json({ status: "error", error: error.message });
+    return res.status(400).json({ success: false, error: error.message });
   }
 };
 

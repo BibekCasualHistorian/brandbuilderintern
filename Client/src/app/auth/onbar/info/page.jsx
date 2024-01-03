@@ -1,10 +1,23 @@
+"use client";
+
 import Inputs from "@/components/Input";
 import Input from "@/components/Input";
 import React from "react";
 
 const Info = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const form = new FormData();
+    const formData = new FormData(event.target);
+
+    // Iterate over form data entries
+    for (const [name, value] of formData.entries()) {
+      console.log(`${name}: ${value}`);
+    }
+  };
+
   return (
-    <div className="text-center w-full px-10 py-8">
+    <form className="text-center w-full px-10 py-8" onSubmit={handleSubmit}>
       <h2 className="text-4xl mb-5 font-bold">Fill your personal info</h2>
 
       <Inputs
@@ -60,10 +73,13 @@ const Info = () => {
         inputTwoName="confirm-password"
       />
 
-      <button className="bg-gray-600 text-white p-2 mt-5 min-w-96 font-bold">
+      <button
+        type="submit"
+        className="bg-gray-600 text-white p-2 mt-5 min-w-96 font-bold"
+      >
         Apply
       </button>
-    </div>
+    </form>
   );
 };
 

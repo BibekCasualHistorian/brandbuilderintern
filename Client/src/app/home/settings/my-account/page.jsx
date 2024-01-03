@@ -1,4 +1,4 @@
-import MyAccountInput from "@/components/settings/MyAccountInput";
+import MyAccountInput from "@/components/settings/My-Account/MyAccountInput";
 import React from "react";
 
 const MyAccount = () => {

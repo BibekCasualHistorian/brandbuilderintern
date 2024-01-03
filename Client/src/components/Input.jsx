@@ -19,6 +19,7 @@ const Inputs = ({
           type={typeOne}
           name={inputOneName}
           id={inputOneName}
+          required
           className="bg-gray-300 p-1.5 px-2 text-gray-600 mt-1 w-full outline-none hover:outline-none"
         />
       </div>
@@ -28,6 +29,7 @@ const Inputs = ({
         <label htmlFor={inputTwoName}>{labelTwo}</label> <br />
         <input
           autoComplete="no"
+          required
           className="bg-gray-300 p-1.5 mt-1 w-full outline-none hover:outline-none"
           type={typeTwo}
           name={inputTwoName}

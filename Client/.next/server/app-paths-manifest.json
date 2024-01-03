@@ -1,4 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/auth/page": "app/auth/page.js"
+  "/home/products/page": "app/home/products/page.js",
+  "/home/settings/pricing-rules/page": "app/home/settings/pricing-rules/page.js",
+  "/home/imports/page": "app/home/imports/page.js",
+  "/home/imports/variants-price/page": "app/home/imports/variants-price/page.js",
+  "/home/imports/description/page": "app/home/imports/description/page.js",
+  "/home/imports/image/page": "app/home/imports/image/page.js"
 }
