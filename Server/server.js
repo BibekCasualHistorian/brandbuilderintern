@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 const atlasURI = `mongodb+srv://root:root@cluster0.cb5iicf.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -6,7 +6,7 @@ const atlasURI = `mongodb+srv://root:root@cluster0.cb5iicf.mongodb.net/?retryWri
 const { connectDB } = require("./db/connectDb");
 
 // Importing Routes
-const userRoutes = require("./routes/userRoutes");
+const { userRouter } = require("./routes/userRoutes");
 
 // Express App
 const express = require("express");
@@ -25,15 +25,16 @@ const cookieParser = require("cookie-parser");
 // middleware
 app.use(cookieParser({}));
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"],
+//     credentials: true,
+//   })
+// );
+app.use(cors());
 
 // App Routes
-app.use("/api/user", userRoutes);
+app.use("/api/user", userRouter);
 
 // Error Routes. which now we aren't using
 // app.use((err, req, res, next) => {

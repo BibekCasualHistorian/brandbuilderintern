@@ -1,4 +1,4 @@
-// File: C:\Users\wwwko\Desktop\Next-Project\multi-vendor\src\app\auth\page.jsx
+// File: C:\Users\wwwko\Desktop\Next-Project\brandbuilder-intern\Client\src\app\auth\page.jsx
 import * as entry from '../../../../src/app/auth/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
