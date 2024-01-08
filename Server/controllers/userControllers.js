@@ -2,9 +2,9 @@ const UserModel = require("../models/userModel");
 const createJsonWebToken = require("../utils/createJsonWebToken");
 
 const register = async (req, res) => {
-  const { username, email, password, mobile } = req.body;
+  const { email, password } = req.body;
 
-  console.log("register", username, email, password, mobile);
+  console.log("register", email, password);
 
   try {
     // One way
@@ -12,13 +12,10 @@ const register = async (req, res) => {
     // await user.save();
 
     // Another way to create a collection
-    const user = await UserModel.registerStatics(
-      username,
-      email,
-      password,
-      mobile
-    );
+    const user = await UserModel.registerStatics(email, password);
     const token = createJsonWebToken(user._id);
+
+    console.log("token", token);
 
     // We don't want to send the password to user so
     const { password: hashedPassword, ...rest } = user._doc;

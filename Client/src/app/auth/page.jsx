@@ -26,7 +26,7 @@ const Auth = () => {
       console.log("data", data);
       if (response.ok) {
         console.log("response.ok");
-        redirect("/auth/onbar");
+        redirect("/auth/onbar/info");
       } else {
         throw Error(data.error);
       }
@@ -41,8 +41,8 @@ const Auth = () => {
         className="text-center justify-items-center max-w-md w-5/6 h-fit m-auto p-2 py-3 "
         onSubmit={handleSubmit}
       >
-        <h1 className="text-5xl font-semibold mb-7">K-Goods</h1>
-        <h2 className="text-3xl my-6">Login to K-Goods</h2>
+        <h1 className="text-5xl font-semibold mb-4">K-Goods</h1>
+        <h2 className="text-3xl mb-3">Login to K-Goods</h2>
 
         <div className="text-left my-1.5">
           <label htmlFor="username" className="font-semibold">
@@ -125,7 +125,7 @@ const Auth = () => {
 
         <div className="mt-6 text-gray-700">
           News at K-Goods?{" "}
-          <Link href={""} className="text-black cursor-pointer">
+          <Link href={"/auth/register"} className="text-black cursor-pointer">
             Register
           </Link>
         </div>

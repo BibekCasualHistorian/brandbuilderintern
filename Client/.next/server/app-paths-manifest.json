@@ -1,8 +1,8 @@
 {
-  "/home/products/page": "app/home/products/page.js",
-  "/home/settings/pricing-rules/page": "app/home/settings/pricing-rules/page.js",
-  "/home/imports/page": "app/home/imports/page.js",
-  "/home/imports/variants-price/page": "app/home/imports/variants-price/page.js",
-  "/home/imports/description/page": "app/home/imports/description/page.js",
-  "/home/imports/image/page": "app/home/imports/image/page.js"
+  "/not-found": "app/not-found.js",
+  "/auth/register/page": "app/auth/register/page.js",
+  "/page": "app/page.js",
+  "/auth/onbar/info/page": "app/auth/onbar/info/page.js",
+  "/auth/onbar/store/page": "app/auth/onbar/store/page.js",
+  "/auth/onbar/categories/page": "app/auth/onbar/categories/page.js"
 }

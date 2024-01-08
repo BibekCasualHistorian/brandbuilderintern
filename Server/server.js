@@ -1,6 +1,7 @@
 // require("dotenv").config();
 
 const atlasURI = `mongodb+srv://root:root@cluster0.cb5iicf.mongodb.net/?retryWrites=true&w=majority`;
+const localUri = `mongodb://localhost:27017/K-Goods`;
 
 // Importing DB connect
 const { connectDB } = require("./db/connectDb");
@@ -11,7 +12,7 @@ const { userRouter } = require("./routes/userRoutes");
 // Express App
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // this enable hackers to not know about the technology we are using
 app.disable("x-powered-by"); // less hackers know about our stack
@@ -27,7 +28,7 @@ app.use(cookieParser({}));
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3001"],
+    origin: ["http://localhost:3001", "http://localhost:3000"],
     // credentials: true,
   })
 );
@@ -35,6 +36,7 @@ app.use(
 
 // App Routes
 app.use("/api/user", userRouter);
+
 
 // Error Routes. which now we aren't using
 // app.use((err, req, res, next) => {

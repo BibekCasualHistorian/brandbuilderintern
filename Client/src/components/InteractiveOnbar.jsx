@@ -15,6 +15,9 @@ const InteractiveOnbar = () => {
   const matchStore = pathName.endsWith("store")
     ? "w-7 h-7 bg-gray-500 border-white border-2"
     : "w-7 h-7 bg-white";
+  const matchCategories = pathName.endsWith("categories")
+    ? "w-7 h-7 bg-gray-500 border-white border-2"
+    : "w-7 h-7 bg-white";
 
   return (
     <div className="min-h-screen bg-gray-300 w-full text-center flex flex-col justify-evenly pb-16">
@@ -32,9 +35,9 @@ const InteractiveOnbar = () => {
         </Link>
       </div>
       <div className="flex ">
-        <Link href={""} className="flex px-5">
-          <p className="w-7 h-7 bg-white mx-6"></p>
-          <p className="text-xl">Choose Categories</p>
+        <Link href={"categories"} className="flex px-5">
+          <p className={matchCategories}></p>
+          <p className=" ml-2 text-xl text-balance">Choose Categories</p>
         </Link>
       </div>
     </div>

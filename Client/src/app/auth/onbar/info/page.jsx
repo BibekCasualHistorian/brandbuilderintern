@@ -1,18 +1,55 @@
 "use client";
 
 import Inputs from "@/components/Input";
-import Input from "@/components/Input";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const Info = () => {
-  const handleSubmit = (e) => {
+  const router = useRouter();
+
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // const form = new FormData();
     const formData = new FormData(event.target);
 
-    // Iterate over form data entries
-    for (const [name, value] of formData.entries()) {
-      console.log(`${name}: ${value}`);
+    // // Iterate over form data entries
+    // for (const [name, value] of formData.entries()) {
+    //   console.log(`${name}: ${value}`);
+    // }
+
+    const formDataToObject = (formData) => {
+      const object = {};
+      formData.forEach((value, key) => {
+        object[key] = value;
+      });
+      return object;
+    };
+
+    // Example usage:
+    let formDataObject = formDataToObject(formData);
+
+    const userId = JSON.parse(localStorage.getItem("user"));
+    formDataObject = { ...formDataObject, _id: userId._id };
+    try {
+      const response = await fetch("http://localhost:3001/api/user/userInfo", {
+        method: "POST",
+        body: JSON.stringify(formDataObject),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log("response", response);
+      console.log("data", data);
+      if (response.ok) {
+        router.push("/auth/onbar/store");
+      } else {
+        throw Error(data.error);
+      }
+    } catch (error) {
+      setError(error.message);
     }
   };
 
@@ -26,7 +63,7 @@ const Info = () => {
         inputOneName="name"
         labelTwo="Last Name"
         typeTwo="text"
-        inputTwoName="last-name"
+        inputTwoName="lastName"
       />
       <Inputs
         labelOne="Email Address"
@@ -34,15 +71,15 @@ const Info = () => {
         inputOneName="email"
         labelTwo="Phone Number"
         typeTwo="number"
-        inputTwoName="phone-number"
+        inputTwoName="phoneNumber"
       />
       <Inputs
         labelOne="User Name"
         typeOne="text"
-        inputOneName="user-name"
+        inputOneName="userName"
         labelTwo="Business Name"
         typeTwo="text"
-        inputTwoName="business-name"
+        inputTwoName="businessName"
       />
 
       <div className="mr-auto text-left  w-1/2 px-7">
@@ -62,15 +99,15 @@ const Info = () => {
         inputOneName="address"
         labelTwo="Postal Code"
         typeTwo="text"
-        inputTwoName="postal-code"
+        inputTwoName="postalCode"
       />
       <Inputs
         labelOne="New Password"
         typeOne="text"
-        inputOneName="new-password"
+        inputOneName="newPassword"
         labelTwo="Confirm Password"
         typeTwo="text"
-        inputTwoName="confirm-password"
+        inputTwoName="confirmPassword"
       />
 
       <button

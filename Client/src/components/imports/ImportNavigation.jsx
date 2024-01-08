@@ -82,7 +82,7 @@ const ImportNavigation = () => {
               className={`absolute h-1.5 bg-gray-400 rounded ${
                 pathName == link.href ? "" : " hidden"
               }`}
-              style={{ bottom: "-0.8em", left: "-5%", width: "110%" }}
+              style={{ bottom: "-0.4em", left: "-5%", width: "110%" }}
             ></section>
           </Link>
         ))}

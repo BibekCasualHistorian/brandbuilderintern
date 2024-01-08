@@ -3,7 +3,7 @@ import TableData from "./TableData";
 
 function Table() {
   return (
-    <div className="text-black w-full flex flex-col gap-4">
+    <div className="text-black w-full flex flex-col gap-4 text-center">
       <div className="flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <input type="checkbox" name="" id="" className="w-5 aspect-square" />

@@ -4,32 +4,36 @@ const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      unique: [true, "Your username is not unique"],
-    },
+    // username: {
+    //   type: String,
+    //   required: true,
+    //   unique: [true, "Your username is not unique"],
+    // },
     email: {
       type: String,
       required: true,
       unique: [true, "Your Email is already registered"],
     },
-    creator: {
-      type: Object,
-    },
-    mobile: {
-      type: String,
-      required: true,
-    },
+    // creator: {
+    //   type: Object,
+    // },
+    // mobile: {
+    //   type: String,
+    //   required: true,
+    // },
     password: {
       type: String,
       required: true,
     },
-    photo: {
-      type: String,
-      default:
-        "https://th.bing.com/th/id/OIP.tmgWGdzGFmIwg1iaqCbSvgHaHa?w=179&h=194&c=7&r=0&o=5&pid=1.7",
+    rememberMe: {
+      type: Boolean,
+      default: false,
     },
+    // photo: {
+    //   type: String,
+    //   default:
+    //     "https://th.bing.com/th/id/OIP.tmgWGdzGFmIwg1iaqCbSvgHaHa?w=179&h=194&c=7&r=0&o=5&pid=1.7",
+    // },
   },
   {
     timestamps: true,
@@ -37,15 +41,18 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.statics.registerStatics = async function (
-  username,
+  // username,
   email,
-  password,
-  mobile,
-  photo
+  password
+  // mobile
 ) {
-  console.log(username, email, password, mobile);
+  // console.log(username, email, password, mobile);
 
-  if (!username || !email || !password || !mobile) {
+  // if (!username || !email || !password || !mobile) {
+  //   throw Error("Please fill in all fields");
+  // }
+
+  if (!email || !password) {
     throw Error("Please fill in all fields");
   }
 
@@ -56,25 +63,25 @@ userSchema.statics.registerStatics = async function (
   }
 
   // check whether username is unique or not
-  const isUsernameUnique = await this.findOne({ username });
-  if (isUsernameUnique) {
-    throw Error("You must have unique Username");
-  }
+  // const isUsernameUnique = await this.findOne({ username });
+  // if (isUsernameUnique) {
+  //   throw Error("You must have unique Username");
+  // }
 
   // check whether mobile is unique or not
-  const isMobileUnique = await this.findOne({ mobile });
-  if (isMobileUnique) {
-    throw Error("Your mobile number should be unique");
-  }
+  // const isMobileUnique = await this.findOne({ mobile });
+  // if (isMobileUnique) {
+  //   throw Error("Your mobile number should be unique");
+  // }
 
   // check whether email is valid or not
   if (!validator.isEmail(email)) {
     throw new Error("Invalid email address");
   } // Check if the username contains only alphanumeric characters and underscores // if (!validator.isAlphanumeric(username, "en-US")) { //   throw new Error( //     "Username should contain only letters, numbers, or underscores" //   ); // } // Check if the username is at least 3 characters long
 
-  if (!validator.isLength(username, { min: 3 })) {
-    throw new Error("Username should be at least 3 characters long");
-  } // Check if the mobile number is a valid phone number // if (!validator.isMobilePhone(mobile, "en-US")) { //   throw new Error("Invalid mobile number"); // }
+  // if (!validator.isLength(username, { min: 3 })) {
+  //   throw new Error("Username should be at least 3 characters long");
+  // } // Check if the mobile number is a valid phone number // if (!validator.isMobilePhone(mobile, "en-US")) { //   throw new Error("Invalid mobile number"); // }
 
   // check whether password is strong or not
   if (!validator.isStrongPassword(password)) {
@@ -86,10 +93,10 @@ userSchema.statics.registerStatics = async function (
 
   // create the document in database
   const user = await this.create({
-    username,
+    // username,
     email,
     password: hash,
-    mobile,
+    // mobile,
   });
   return user;
 };
