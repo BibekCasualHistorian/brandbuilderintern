@@ -1,6 +1,7 @@
 "use client";
 
 import LabelBoxwithOutDescription from "@/components/labelBoxwithOutDescription";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 
 const data = [
@@ -55,6 +56,8 @@ const data = [
 ];
 
 const categories = () => {
+  const router = useRouter();
+
   const [products, setProducts] = useState([]);
 
   console.log("products at line 60", products);
@@ -87,18 +90,20 @@ const categories = () => {
     }
   };
 
-  // const handleProduct = (product) => {
-  //   console.log("handleProduct Products", products);
-  //   console.log("handleProduct product", product);
-  //   if (products.includes(product)) {
-  //     return;
-  //   }
-  //   setProducts((prevState) => {
-  //     console.log("prevState", prevState);
-  //     const newState = prevState;
-  //     return [...newState, product];
-  //   });
-  // };
+  const handleProduct = (product) => {
+    console.log("handleProduct Products", products);
+    console.log("handleProduct product", product);
+
+    if (products.includes(product)) {
+      return;
+    }
+    setProducts((prevState) => {
+      console.log("prevState", prevState);
+      const newState = prevState;
+      console.log("newState", newState);
+      return [...newState, product];
+    });
+  };
 
   // const handleProduct = useCallback((product) => {
   //   console.log("handleProduct Products", products);
@@ -111,21 +116,22 @@ const categories = () => {
   //   });
   // }, []);
 
-  const handleProduct = useCallback((product) => {
-    console.log("handleProduct Products", products);
-    console.log("handleProduct product", product);
-    setProducts((prevState) => {
-      console.log(prevState);
-      return [...prevState, product];
-    });
-  }, []);
+  // const handleProduct = useCallback((product) => {
+  //   console.log("handleProduct Products", products);
+  //   console.log("handleProduct product", product);
+
+  //   setProducts((prevState) => {
+  //     console.log(prevState);
+  //     return [...prevState, product];
+  //   });
+  // }, []);
 
   console.log("products at line 99", products);
 
   return (
     <div className="flex items-center justify-center mt-3">
       <div className="text-black flex flex-col gap-2 p-1 rounded-lg bg-primary">
-        <p className="font-bold text-[1.1rem]">Choose Product Category</p>
+        <p className="font-bold text-[1.2rem]">Choose Product Category</p>
         <p>
           What product do you want to sell? You should choose at less 3
           categories

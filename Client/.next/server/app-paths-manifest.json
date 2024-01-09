@@ -1,8 +1,11 @@
 {
-  "/not-found": "app/not-found.js",
   "/auth/register/page": "app/auth/register/page.js",
-  "/page": "app/page.js",
   "/auth/onbar/info/page": "app/auth/onbar/info/page.js",
   "/auth/onbar/store/page": "app/auth/onbar/store/page.js",
-  "/auth/onbar/categories/page": "app/auth/onbar/categories/page.js"
+  "/auth/onbar/categories/page": "app/auth/onbar/categories/page.js",
+  "/home/page": "app/home/page.js",
+  "/home/orders/page": "app/home/orders/page.js",
+  "/home/products/page": "app/home/products/page.js",
+  "/home/imports/page": "app/home/imports/page.js",
+  "/home/settings/page": "app/home/settings/page.js"
 }

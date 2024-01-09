@@ -2,7 +2,8 @@ const ProductCategoryModel = require("../models/productCategoryModel");
 const UserModel = require("../models/userModel");
 
 const createProductCategory = async (req, res) => {
-  const { _id } = req.body;
+  const { _id, products } = req.body;
+  console.log(_id, products);
   try {
     const doesUserExist = await UserModel.findOne({ _id });
     if (!doesUserExist) {
