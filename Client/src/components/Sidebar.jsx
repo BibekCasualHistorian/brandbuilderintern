@@ -52,17 +52,17 @@ const Sidebar = () => {
 
   // Define an array of links with their properties
   const mainLinks = [
-    { href: "/home/dashboard", text: "Dashboard" },
-    { href: "/home/search", text: "Search Product" },
-    { href: "/home/imports", text: "Imports" },
-    { href: "/home/orders", text: "Orders" },
-    { href: "/home/products", text: "Products" },
+    { href: "dashboard", text: "Dashboard" },
+    { href: "search", text: "Search Product" },
+    { href: "imports", text: "Imports" },
+    { href: "orders", text: "Orders" },
+    { href: "products", text: "Products" },
   ];
 
   const settingsLinks = [
-    { href: "/home/settings", text: "Settings" },
-    { href: "/home/language", text: "Language" },
-    { href: "/home/supports", text: "Supports" },
+    { href: "settings", text: "Settings" },
+    { href: "language", text: "Language" },
+    { href: "supports", text: "Supports" },
   ];
 
   return (
@@ -79,10 +79,14 @@ const Sidebar = () => {
       <div className="mt-6 pr-2">
         <div className="flex flex-col gap-4 w-fit mx-auto ">
           {mainLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={`flex gap-2 `}>
+            <Link
+              key={link.href}
+              href={"/home/" + link.href}
+              className={`flex gap-2 `}
+            >
               <section
                 className={`w-6 h-6 bg-gray-400 border-white border-2 ${
-                  pathName == link.href ? "bg-red-500" : ""
+                  pathName.includes(link.href) ? "bg-red-500" : ""
                 }`}
               ></section>{" "}
               {link.text}
@@ -94,10 +98,14 @@ const Sidebar = () => {
       <div className="mt-auto pr-5 mb-3">
         <div className="flex flex-col gap-4 w-fit mx-auto">
           {settingsLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={`flex gap-3`}>
+            <Link
+              key={link.href}
+              href={"/home/" + link.href}
+              className={`flex gap-3`}
+            >
               <section
                 className={`w-6 h-6 bg-gray-400 border-white border-2 ${
-                  pathName === link.href ? "bg-red-500" : ""
+                  pathName.includes(link.href) ? "bg-red-500" : ""
                 }`}
               ></section>{" "}
               {link.text}

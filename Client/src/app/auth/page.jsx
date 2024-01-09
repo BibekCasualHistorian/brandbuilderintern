@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Auth = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -16,7 +19,7 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/user/login", {
+      const response = await fetch("http://localhost:3001/api/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, rememberMe }),
@@ -26,7 +29,7 @@ const Auth = () => {
       console.log("data", data);
       if (response.ok) {
         console.log("response.ok");
-        redirect("/auth/onbar/info");
+        router.push("/home");
       } else {
         throw Error(data.error);
       }
@@ -93,7 +96,7 @@ const Auth = () => {
           </div>
         </div>
 
-        <p className="h-4 text-red-900 mb-4">{error}</p>
+        <p className="min-h-4 text-red-900 mb-4">{error}</p>
 
         <button
           type="submit"

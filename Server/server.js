@@ -37,7 +37,6 @@ app.use(
 // App Routes
 app.use("/api/user", userRouter);
 
-
 // Error Routes. which now we aren't using
 // app.use((err, req, res, next) => {
 //   const status = err.statusCode || 500;

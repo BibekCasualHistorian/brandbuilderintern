@@ -90,6 +90,7 @@ const Register = () => {
             name="password"
             id="password"
             value={password}
+            minLength={8}
             onChange={(e) => setPassword(e.target.value)}
             required
           />

@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/components/*": [
+        "src/components/*"
+      ]
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,8 +32,9 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/auth/onbar/store/page.jsx"  ],
+    "**/*.tsx",
+    "src/app/auth/onbar/store/page.jsx"
+  ],
   "exclude": [
     "node_modules"
   ]

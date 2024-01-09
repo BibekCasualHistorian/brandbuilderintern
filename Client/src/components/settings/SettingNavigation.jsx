@@ -15,7 +15,7 @@ const SettingNavigation = () => {
   ];
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 mb-4">
       <div className="bg-gray-300 p-4 flex gap-7">
         {links.map((link) => (
           <Link key={link.href} href={link.href} className="relative">

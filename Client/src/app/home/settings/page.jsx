@@ -4,7 +4,7 @@ import React from "react";
 
 const Settings = () => {
   return (
-    <div className="mt-8">
+    <div className="">
       <div className="text-center">
         <h2>Choose Your Best Plan Here</h2>
         <div className="flex gap-6 justify-center mt-4">

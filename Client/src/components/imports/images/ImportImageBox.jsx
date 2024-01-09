@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import image from "/public/image.jpg";
+
 const ImportImageBox = () => {
   return (
     <div className=" p-2 relative h-40 rounded-sm ">

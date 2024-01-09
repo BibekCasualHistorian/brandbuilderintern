@@ -1,6 +1,4 @@
-import image from "/public/image.jpg";
 import ImportImageBox from "@/components/imports/images/ImportImageBox";
-console.log(image);
 
 const ImportImage = () => {
   return (
