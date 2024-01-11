@@ -62,7 +62,7 @@ const Sidebar = () => {
   const settingsLinks = [
     { href: "settings", text: "Settings" },
     { href: "language", text: "Language" },
-    { href: "supports", text: "Supports" },
+    { href: "support", text: "Supports" },
   ];
 
   return (
