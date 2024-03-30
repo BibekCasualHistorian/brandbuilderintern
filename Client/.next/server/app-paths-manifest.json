@@ -1,10 +1,4 @@
 {
-  "/home/orders/page": "app/home/orders/page.js",
-  "/home/products/page": "app/home/products/page.js",
-  "/home/imports/description/page": "app/home/imports/description/page.js",
-  "/home/imports/image/page": "app/home/imports/image/page.js",
-  "/home/imports/page": "app/home/imports/page.js",
-  "/home/settings/page": "app/home/settings/page.js",
-  "/home/settings/my-account/page": "app/home/settings/my-account/page.js",
-  "/home/settings/shipping/page": "app/home/settings/shipping/page.js"
+  "/not-found": "app/not-found.js",
+  "/page": "app/page.js"
 }

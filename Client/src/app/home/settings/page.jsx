@@ -1,5 +1,4 @@
 import PlanBox from "@/components/settings/Plans/PlanBox";
-import Link from "next/link";
 import React from "react";
 
 const Settings = () => {
